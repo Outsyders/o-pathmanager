@@ -1,0 +1,45 @@
+# Studio‐wide default naming templates and rules
+templates:
+  sg_version_rep:
+    pattern: "{color}_{resolution}_{ext}"
+    required_tokens: [color, resolution, ext]
+    transforms:
+      color: ["lowercase"]
+      resolution: ["lowercase"]
+      ext: ["lowercase"]
+
+  sg_version_name:
+    pattern: "{show}_{shotCode}_{task}_{sg_version_rep}_{descriptor}_v{version}"
+    required_tokens: [shotCode, task, sg_version_rep, descriptor, version]
+    optional_tokens: [show]
+    transforms:
+      show: ["uppercase"]
+      shotCode: ["uppercase"]
+      task: ["lowercase"]
+      descriptor: ["lowercase"]
+      version: ["version_format"]
+
+  published_files:
+    pattern: "{root}/{seq}/{shotCode}/{task}/{pub_dir}/{sg_version_name}/{sg_version_name}.{eye}.{padding}.{ext}"
+    required_tokens: [root, seq, shotCode, task, sg_version_name, ext]
+    optional_tokens: [eye, padding, pub_dir]  
+    default_tokens:
+      pub_dir: "pub_dir"
+      padding: 4 # <- converts single digit (eg 5) to %05d
+    transforms:
+      show: ["uppercase"]
+      shotCode: ["uppercase"]
+      ext: ["lowercase"]
+      eye: ["lowercase"]
+
+  work_files:
+    pattern: "{root}/{seq}/{shotCode}/{task}/{work_dir}/{show}_{shotCode}_{task}_{descriptor}_v{version}.{ext}"
+    required_tokens: [show, seq, shotCode, task, version, ext]
+    optional_tokens: [work_dir, descriptor]
+    default_tokens:
+      work_dir: "work_dir"
+    transforms:
+      show: ["uppercase"]
+      shotCode: ["uppercase"]
+      ext: ["lowercase"]
+      version: ["version_format"] # <- converts single digit to %03d

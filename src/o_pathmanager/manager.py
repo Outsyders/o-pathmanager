@@ -16,6 +16,17 @@ class PathManager:
                  validator: ValidationStrategy = None,
                  formatter: PatternFormatter = None,
                  os_formatter: OSPathFormatter = None):
+        # Validate config_paths
+        if not config_paths:
+            raise ValueError("config_paths cannot be empty.")
+        for path in config_paths:
+            if path is None:
+                raise ValueError("One of the config paths is None.")
+            if not isinstance(path, Path):
+                raise TypeError(f"Expected Path object, got {type(path)}: {path}")
+            if not path.exists():
+                raise FileNotFoundError(f"Config path does not exist: {path}")
+
         self._default_os   = default_os
         self._loader       = loader       or YamlDeepMergeLoader()
         self._transformer  = transformer  or StringTransformerStrategy()

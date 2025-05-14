@@ -16,6 +16,15 @@ class YamlDeepMergeLoader(TemplateLoaderStrategy):
     def load(self, config_paths: List[Path]) -> Dict[str, dict]:
         templates: Dict[str, dict] = {}
 
+        # Validate config_paths
+        if not config_paths:
+            raise ValueError("config_paths cannot be empty.")
+        for path in config_paths:
+            if path is None:
+                raise ValueError("One of the config paths is None.")
+            if not path.exists():
+                raise FileNotFoundError(f"Config path does not exist: {path}")
+
         for path in config_paths:
             print(f"[DEBUG] Attempting to load config: {path}")
             if not path.exists():

@@ -5,3 +5,6 @@ description = "pathmanager API"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = ['pyyaml']
+
+[tool.setuptools.package-data]
+"o_pathmanager" = ["config/default.yaml"]

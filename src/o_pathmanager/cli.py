@@ -93,7 +93,6 @@ def main():
             "shotCode":        "shot05",
             "task":            "COMP",
             "sg_version_name": ver,
-            "eye":             "l",
             "ext":             "exr"
         }
     )

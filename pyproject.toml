@@ -1,6 +1,6 @@
 [project]
 name = "o-pathmanager"
-version = "0.0.2"
+version = "0.0.3"
 description = "pathmanager API"
 readme = "README.md"
 requires-python = ">=3.10"

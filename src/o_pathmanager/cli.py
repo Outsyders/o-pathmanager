@@ -68,7 +68,7 @@ def main():
 
     rep = pm.generate(
         "sg_version_rep",
-        {"color": "aces", "resolution": "4K", "ext": "EXR"}
+        {"color": "aces", "resolution": "4K", "ext": "mov"}
     )
     print("SG Version Rep:", rep)
 
@@ -88,12 +88,12 @@ def main():
     pub = pm.generate(
         "published_files",
         {
-            "root":            "root",
-            "seq":             "00",
-            "shotCode":        "shot05",
+            "root":            projects_root.as_posix(),
+            "seq":             "TD",
+            "shotCode":        "TD0010",
             "task":            "COMP",
             "sg_version_name": ver,
-            "ext":             "exr"
+            "ext":             "mov"
         }
     )
     print("Published File:", pub)

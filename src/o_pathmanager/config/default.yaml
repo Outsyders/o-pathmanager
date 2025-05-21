@@ -1,5 +1,6 @@
 
 studio_cfg: "config/default.yaml"
+projects_root: "D:/mnt/o/projects/dev"
 
 templates:
   sg_version_rep:
@@ -21,13 +22,25 @@ templates:
       descriptor: ["lowercase"]
       version: ["version_format"]
 
-  published_files:
+  published_seq_files:
     pattern: "{root}/seq/{seq}/{shotCode}/{task}/{pub_dir}/{sg_version_name}/{sg_version_name}_{eye}.{padding}.{ext}"
     required_tokens: [root, seq, shotCode, task, ext]
     optional_tokens: [eye, padding, pub_dir, sg_version_name]
     default_tokens:
       pub_dir: "pub_dir"
       padding: 4 
+    transforms:
+      show: ["uppercase"]
+      shotCode: ["uppercase"]
+      ext: ["lowercase"]
+      eye: ["lowercase"]
+  
+  published_files:
+    pattern: "{root}/seq/{seq}/{shotCode}/{task}/{pub_dir}/{sg_version_name}/{sg_version_name}.{ext}"
+    required_tokens: [root, seq, shotCode, task, ext]
+    optional_tokens: [pub_dir, sg_version_name]
+    default_tokens:
+      pub_dir: "pub_dir"
     transforms:
       show: ["uppercase"]
       shotCode: ["uppercase"]

@@ -56,6 +56,7 @@ def load_config(project_config: str = None) -> DotDict:
     
     with default_config_path.open('r') as f:
         config = _convert_to_dot_dict(yaml.safe_load(f) or {})
+        config['default_config_path'] = str(default_config_path)
     
     # Load deployment-specific config if environment variable is set
     deployment_type = _get_deployment_type()

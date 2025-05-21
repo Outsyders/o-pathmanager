@@ -69,7 +69,7 @@ templates:
       shotCode: ["uppercase"]
 
   work_files:
-    pattern: "{root}/{seq}/{shotCode}/{task}/{work_dir}/{show}_{shotCode}_{task}_{descriptor}_v{version}.{ext}"
+    pattern: "{root}/seq/{seq}/{shotCode}/{task}/{work_dir}/{ext}/{show}_{shotCode}_{task}_{descriptor}_v{version}.{ext}"
     required_tokens: [root, seq, shotCode, task, version, ext]
     optional_tokens: [show, work_dir, descriptor]
     default_tokens:

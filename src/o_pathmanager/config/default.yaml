@@ -58,12 +58,35 @@ templates:
       ext: ["lowercase"]
       eye: ["lowercase"]
 
+  work_dir:
+    pattern: "{root}/{seq}/{shotCode}/{task}/{work_dir}/"
+    required_tokens: [root, seq, shotCode, task]
+    optional_tokens: [show, work_dir]
+    default_tokens:
+      work_dir: "work_dir"
+    transforms:
+      show: ["uppercase"]
+      shotCode: ["uppercase"]
+
   work_files:
     pattern: "{root}/seq/{seq}/{shotCode}/{task}/{work_dir}/{ext}/{show}_{shotCode}_{task}_{descriptor}_v{version}.{ext}"
     required_tokens: [root, seq, shotCode, task, version, ext]
     optional_tokens: [show, work_dir, descriptor]
     default_tokens:
       work_dir: "work_dir"
+    transforms:
+      show: ["uppercase"]
+      shotCode: ["uppercase"]
+      ext: ["lowercase"]
+      version: ["version_format"]
+
+  work_render:
+    pattern: "{root}/{seq}/{shotCode}/{task}/{work_dir}/render/v{version}/{show}_{shotCode}_{task}_{descriptor}_v{version}_{eye}.{padding}.{ext}"
+    required_tokens: [root, seq, shotCode, task, version, ext]
+    optional_tokens: [show, work_dir, descriptor, eye, padding]
+    default_tokens:
+      work_dir: "work_dir"
+      padding: 4 
     transforms:
       show: ["uppercase"]
       shotCode: ["uppercase"]

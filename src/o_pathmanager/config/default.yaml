@@ -1,6 +1,5 @@
 
 studio_cfg: "config/default.yaml"
-projects_root: "D:/mnt/o/projects/dev"
 
 templates:
   sg_version_rep:

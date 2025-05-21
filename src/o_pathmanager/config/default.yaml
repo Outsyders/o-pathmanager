@@ -12,7 +12,7 @@ templates:
       ext: ["lowercase"]
 
   sg_version_name:
-    pattern: "{show}_{shotCode}_{task}_{sg_version_rep}_{descriptor}_v{version}"
+    pattern: "{shotCode}_{task}_{sg_version_rep}_{descriptor}_v{version}"
     required_tokens: [shotCode, task, descriptor, version]
     optional_tokens: [show, sg_version_rep]
     transforms:

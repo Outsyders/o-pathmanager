@@ -26,7 +26,6 @@ class YamlDeepMergeLoader(TemplateLoaderStrategy):
                 raise FileNotFoundError(f"Config path does not exist: {path}")
 
         for path in config_paths:
-            print(f"[DEBUG] Attempting to load config: {path}")
             if not path.exists():
                 print(f"[WARNING] Config file '{path}' not found, skipping.")
                 continue
@@ -38,7 +37,6 @@ class YamlDeepMergeLoader(TemplateLoaderStrategy):
                 continue
 
             section = data.get('templates', {})
-            print(f"[DEBUG] Parsed templates at {path}: {section}")
 
             for name, conf in section.items():
                 if name not in templates:
@@ -61,7 +59,6 @@ class YamlDeepMergeLoader(TemplateLoaderStrategy):
                         else:
                             templates[name][k] = copy.deepcopy(v)
 
-        print(f"[DEBUG] Final merged templates: {templates}")
         return templates
 
     def _deep_merge(self, base: dict, override: dict) -> None:

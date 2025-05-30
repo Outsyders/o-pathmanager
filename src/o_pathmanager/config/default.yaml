@@ -21,6 +21,16 @@ templates:
       descriptor: ["lowercase"]
       version: ["version_format"]
 
+  pub_dir:
+    pattern: "{root}/seq/{seq}/{shotCode}/{task}/{pub_dir}/"
+    required_tokens: [root, seq, shotCode, task]
+    optional_tokens: [show, pub_dir]
+    default_tokens:
+      work_dir: "pub_dir"
+    transforms:
+      show: ["uppercase"]
+      shotCode: ["uppercase"]
+
   published_seq_files:
     pattern: "{root}/seq/{seq}/{shotCode}/{task}/{pub_dir}/{sg_version_name}/{ext}/{sg_version_name}.{padding}.{ext}"
     required_tokens: [root, seq, shotCode, task, ext]

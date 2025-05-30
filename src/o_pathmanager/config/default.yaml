@@ -26,7 +26,7 @@ templates:
     required_tokens: [root, seq, shotCode, task]
     optional_tokens: [show, pub_dir]
     default_tokens:
-      work_dir: "pub_dir"
+      pub_dir: "pub_dir"
     transforms:
       show: ["uppercase"]
       shotCode: ["uppercase"]
